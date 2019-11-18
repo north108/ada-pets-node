@@ -9,7 +9,13 @@ const BASE_URL = "https://petdibs.herokuapp.com/pets/";
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  axios.get('https://petdibs.herokuapp.com/pets/')
+  .then((response) => {
+    setResult(response.data)
+  })
+  .catch((error) => {
+    setError(`Could not list the pets: ${error.response.data}`)
+  });
 }
 
 const showDetails = (selectedPet) => {
