@@ -24,7 +24,13 @@ const showDetails = (selectedPet) => {
     return;
   }
 
-  // Fill out as part of Wave 2.
+  axios.get(`https://petdibs.herokuapp.com/pets/${selectedPet}`)
+  .then((response) => {
+    setResult(response.data)
+  })
+  .catch((error) => {
+    setError(`failed to display details: ${error.response.data}`)
+  })
 }
 
 const removePet = (selectedPet) => {
@@ -33,7 +39,13 @@ const removePet = (selectedPet) => {
     return;
   }
 
-  // Fill out as part of Wave 3.
+  axios.delete(`https://petdibs.herokuapp.com/pets/${selectedPet}`)
+  .then((response) => {
+    setResult('This pet has been adopted!')
+  })
+  .catch((error) => {
+    setError('failed to remove pet: ${error.response.data}')
+  })
 }
 
 const addPet = (petInfo) => {
