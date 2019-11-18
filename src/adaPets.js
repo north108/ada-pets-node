@@ -44,12 +44,20 @@ const removePet = (selectedPet) => {
     setResult('This pet has been adopted!')
   })
   .catch((error) => {
-    setError('failed to remove pet: ${error.response.data}')
+    setError(`failed to remove pet: ${error.response.data}`)
   })
 }
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  // console.log( petInfo)
+  axios.post("https://petdibs.herokuapp.com/pets/", petInfo)
+  .then((response) => {
+    console.log(response.data)
+    setResult(response.data)
+  })
+  .catch((error) => {
+    setError(`failed to add pet: ${error.response.data}`)
+  })
 }
 
 // Use Node-style exports to export functions for tests and main.
