@@ -76,6 +76,7 @@ You can run the Wave 2 tests with `jest test/wave2.test.js`.  Once these are pas
 * `showDetails`
   * `setResult` should be passed the `Object` that represents the pet.
   * `setError` should be passed an error message.  (You may need to write this.)
+    * The tests for this wave are looking for an error message that will **include** two specific words inside of the string. (It does this with Regex). Part of this wave is to read through the tests and determine what two words should be inside of the error message string. What two words are expected to be in this error message? Work with a neighbor on this in order to find out.
 
 ## Wave 3: Remove Pet
 
